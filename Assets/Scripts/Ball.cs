@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    //TODO: [SerializeField] kullanılabilir. speed değerini dışardan saklamak iyi bir pratik olacaktır. 
     // Movement Speed
     public float speed = 100.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        //TODO: Rigidbody component'ini "private RigidBody2D _rigidbody" diye bir değişken aracılığıyla cachelemek en doğrusu olacaktır.
+        // GetComponent'i Start'ta bir kere alıp, daha sonra Update içinde kullanmak daha efektif. GetComponent Update içinde çağrılmayacak kadar
+        // maliyetli bir fonksiyon.
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
     }
 
@@ -34,6 +38,7 @@ public class Ball : MonoBehaviour
         // Calculate direction, set length to 1
         Vector2 dir = new Vector2(x, 1).normalized;
 
+        // 14. satırdaki yorumdaki gibi cachelenmelidir.
         // Set Velocity with dir * speed
         GetComponent<Rigidbody2D>().velocity = dir * speed;
     }
