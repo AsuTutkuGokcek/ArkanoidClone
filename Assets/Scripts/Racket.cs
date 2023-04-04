@@ -11,6 +11,7 @@ public class Racket : MonoBehaviour
         // Get Horizontal Input
         float h = Input.GetAxisRaw("Horizontal");
 
+        //Rigidbody'yi cacheleyip, GetComponet'i fixedUpdate içinde çağırmak yükünden kurtulmalıyız.
         // Set Velocity (movement direction * speed)
         GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speed;
     }
