@@ -6,12 +6,15 @@ public class Ball : MonoBehaviour
 {
     // Movement Speed
     public float speed = 100.0f;
-
+    private Rigidbody2D _rigidbody;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+        _rigidbody = GetComponent<Rigidbody2D>();   //değişken cachelendi memoryde duruyor
+        _rigidbody.velocity = Vector2.up * speed;
+
     }
+    
 
     float hitFactor(Vector2 ballPos, Vector2 racketPos,
                 float racketWidth) {

@@ -6,13 +6,17 @@ public class Racket : MonoBehaviour
 {
     // Movement Speed
     public float speed = 150;
+    private Rigidbody2D _rigidbody;
+
+    void Start(){
+        _rigidbody = GetComponent<Rigidbody2D>();   //değişken cachelendi memoryde duruyor
+    }
 
     void FixedUpdate () {
         // Get Horizontal Input
         float h = Input.GetAxisRaw("Horizontal");
 
-        //Rigidbody'yi cacheleyip, GetComponet'i fixedUpdate içinde çağırmak yükünden kurtulmalıyız.
         // Set Velocity (movement direction * speed)
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speed;
+        _rigidbody.velocity = Vector2.right * h * speed;
     }
 }
