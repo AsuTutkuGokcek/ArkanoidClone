@@ -40,6 +40,9 @@ public class Ball : MonoBehaviour
         // Set Velocity with dir * speed
         GetComponent<Rigidbody2D>().velocity = dir * speed;
     }
+    if(col.gameObject.name == "block_blue(Clone)" || col.gameObject.name == "block_blue"){
+        SoundManagerScript.PlaySound("ball_wall");
+    }
 }
 
 }
