@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5647222164043538308}
   - component: {fileID: 5647222164043538307}
   - component: {fileID: 5647222164043538306}
+  - component: {fileID: 8043996790712378395}
   m_Layer: 0
   m_Name: block_pink
   m_TagString: Untagged
@@ -124,4 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7852086bb68e3a141a1f49aac855ffc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: {fileID: 5647222164043538311}
+--- !u!95 &8043996790712378395
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647222164043538311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afb0285cecf932b459f504ac7ea2c8dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

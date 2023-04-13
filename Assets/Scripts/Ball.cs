@@ -27,8 +27,13 @@ public class Ball : MonoBehaviour
 }
 
     void OnCollisionEnter2D(Collision2D col) {
+
+        transform.localScale = new Vector3(5F, 5F, 5F);
+        transform.localScale = new Vector3(1, 1, 1);
+
     // Hit the Racket?
     if (col.gameObject.name == "racket") {
+        SoundManagerScript.PlaySound("ball_racket");
         // Calculate hit Factor
         float x=hitFactor(transform.position,
                           col.transform.position,
@@ -41,6 +46,9 @@ public class Ball : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = dir * speed;
     }
     if(col.gameObject.name == "block_blue(Clone)" || col.gameObject.name == "block_blue"){
+        SoundManagerScript.PlaySound("ball_block");
+    }
+    if(col.gameObject.name == "border_top" || col.gameObject.name == "border_left" || col.gameObject.name == "border_right"){
         SoundManagerScript.PlaySound("ball_wall");
     }
 }
