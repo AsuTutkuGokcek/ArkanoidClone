@@ -9,12 +9,14 @@ public class Ball : MonoBehaviour
     public float speed = 100.0f;
     private Rigidbody2D _rigidbody;
     // Start is called before the first frame update
-    [SerializeField] private SpriteRenderer ballSpriteRenderer;
+    private SpriteRenderer ballSpriteRenderer;
+    [SerializeField] private Camera camera;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();   //değişken cachelendi memoryde duruyor
         _rigidbody.velocity = Vector2.up * speed;
         ballSpriteRenderer = GetComponent<SpriteRenderer>();
+        camera = Camera.main;
     }
     
 
@@ -30,6 +32,7 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
 
+    camera.DOShakePosition( 2f, 2);
     ballSpriteRenderer.DOColor(Color.red, 0f);
     ballSpriteRenderer.DOColor(Color.white, 1f);
 
