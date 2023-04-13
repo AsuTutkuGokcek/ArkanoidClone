@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Ball : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class Ball : MonoBehaviour
     public float speed = 100.0f;
     private Rigidbody2D _rigidbody;
     // Start is called before the first frame update
+    [SerializeField] private SpriteRenderer ballSpriteRenderer;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();   //değişken cachelendi memoryde duruyor
         _rigidbody.velocity = Vector2.up * speed;
-
+        ballSpriteRenderer = GetComponent<SpriteRenderer>();
     }
     
 
@@ -28,8 +30,8 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
 
-        transform.localScale = new Vector3(5F, 5F, 5F);
-        transform.localScale = new Vector3(1, 1, 1);
+    ballSpriteRenderer.DOColor(Color.red, 0f);
+    ballSpriteRenderer.DOColor(Color.white, 1f);
 
     // Hit the Racket?
     if (col.gameObject.name == "racket") {
